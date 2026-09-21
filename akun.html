@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pengaturan Akun - Portfolio Mahasiswa</title>
+  
+  <!-- File CSS Terpisah -->
+  <link rel="stylesheet" href="akun.css">
+</head>
+<body>
+
+  <main class="container">
+    <div class="card">
+      <h2>Pengaturan Akun</h2>
+      <p class="subtitle">Kelola informasi portfolio Anda melalui halaman pengaturan.</p>
+
+      <section class="section-box">
+        <h3>Informasi Profil</h3>
+        <p class="section-desc">Formulir berikut akan digunakan untuk mengubah informasi yang ditampilkan pada website portfolio.</p>
+
+        <form id="profileForm">
+          <div class="form-group">
+            <label for="inputNama">Nama Akun</label>
+            <input type="text" id="inputNama" placeholder="Masukkan nama">
+          </div>
+
+          <div class="form-group">
+            <label for="inputDeskripsi">Deskripsi Singkat</label>
+            <textarea id="inputDeskripsi" rows="3" placeholder="Masukkan deskripsi singkat"></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="inputNegara">Negara</label>
+            <input type="text" id="inputNegara" placeholder="Contoh: Indonesia">
+          </div>
+
+          <div class="form-group">
+            <label for="inputAlamat">Alamat Rumah</label>
+            <textarea id="inputAlamat" rows="2" placeholder="Contoh: Jl. Merdeka No. 123, Jakarta"></textarea>
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" class="btn-primary">Simpan Perubahan</button>
+            <button type="button" class="btn-secondary" id="btnReset">Reset Formulir</button>
+            <a href="index.html" class="btn-dark">Kembali ke Beranda</a>
+          </div>
+        </form>
+      </section>
+    </div>
+  </main>
+
+  <!-- File JS Terpisah -->
+  <script src="akun.js"></script>
+</body>
+</html>

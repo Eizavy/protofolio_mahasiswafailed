@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Mahasiswa</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- ================= HEADER ================= -->
+    <header>
+        <nav>
+            <!-- Logo -->
+            <div class="logo">
+                PM
+            </div>
+
+            <!-- Judul Website -->
+            <div class="judul">
+                Portfolio Mahasiswa
+            </div>
+
+            <!-- Navigation Menu -->
+            <ul class="nav-menu">
+                <li>
+                    <a href="index.html">Home</a>
+                </li>
+
+                <!-- Dropdown Profil -->
+                <li class="dropdown">
+                    <a href="#profil" class="dropdown-link">
+                        Profil
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="profile.html">Pendidikan</a>
+                        </li>
+                        <li>
+                            <a href="skill.html">Skill</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="kontak.html">Kontak</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- ================= CONTENT ================= -->
+    <main>
+        <!-- ================= HERO ================= -->
+        <section id="home" class="hero">
+
+            <!-- Teks Hero (Kiri) -->
+            <div class="hero-text">
+                <p class="subtitle">SELAMAT DATANG DI PORTFOLIO SAYA</p>
+                <h1>Halo, Saya <span id="displayNama">Kelompok XXXX</span></h1>
+                <p id="displayDeskripsi" class="hero-description"></p>
+            </div>
+
+            <!-- Bagian Kanan (Slideshow + Tombol WA + Tombol Lihat Profile) -->
+            <div class="hero-right">
+
+                <!-- Slideshow Foto -->
+                <div class="slideshow">
+                    <div class="slide active">
+                        <img src="assets/images/slide1.jpg" alt="Foto Mahasiswa 1">
+                    </div>
+
+                    <div class="slide">
+                        <img src="assets/images/slide2.jpg" alt="Foto Mahasiswa 2">
+                    </div>
+
+                    <div class="slide">
+                        <img src="assets/images/slide3.jpg" alt="Foto Mahasiswa 3">
+                    </div>
+
+                    <!-- Tombol Navigasi Slide -->
+                    <button class="prev" onclick="changeSlide(-1)">&#10094;</button>
+                    <button class="next" onclick="changeSlide(1)">&#10095;</button>
+
+                    <!-- Indikator Titik -->
+                    <div class="slide-indicators">
+                        <span class="dot active" onclick="currentSlide(1)"></span>
+                        <span class="dot" onclick="currentSlide(2)"></span>
+                        <span class="dot" onclick="currentSlide(3)"></span>
+                    </div>
+                </div>
+
+                <!-- Tombol WhatsApp -->
+                <div class="whatsapp-btn-container">
+                    <a href="https://wa.me/62xxxxxxxxxxx" target="_blank" class="wa-btn">
+                        <i class="fab fa-whatsapp"></i>
+                        <span>Hubungi via Whatsapp</span>
+                    </a>
+                </div>
+
+                <!-- Tombol Lihat Profile -->
+                <div class="profile-btn-container" style="margin-top: 10px;">
+                    <a href="profile.html" class="hero-button">
+                        Lihat Profile
+                    </a>
+                </div>
+
+            </div>
+
+        </section>
+    </main>
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="site-footer">
+      <div class="footer-container">
+        
+        <!-- Kolom 1: Tentang Saya -->
+        <div class="footer-col">
+          <h3>Tentang Saya</h3>
+          <p>Website portfolio mahasiswa yang berisi informasi pendidikan, keterampilan, dan kontak.</p>
+        </div>
+
+        <!-- Kolom 2: Navigasi -->
+        <div class="footer-col">
+          <h3>Navigasi</h3>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="profile.html">Pendidikan</a></li>
+            <li><a href="skill.html">Skill</a></li>
+            <li><a href="kontak.html">Kontak</a></li>
+          </ul>
+        </div>
+
+        <!-- Kolom 3: Kontak & Media Sosial -->
+        <div class="footer-col">
+          <h3>Kontak</h3>
+          <p>Email: <span id="displayEmail">nama@email.com</span></p>
+          <p>Telepon: <span id="displayTelepon">08xxxxxxxxxx</span></p>
+          <p>Negara: <span id="displayNegara">Indonesia</span></p>
+          <p>Alamat: <span id="displayAlamat">-</span></p>
+
+          <ul class="social-links">
+            <p>Instagram: <a href="#" id="displayInstagramLink"><span id="displayInstagram">username_ig</span></a></p>
+            <p>GitHub: <a href="#" id="displayGithubLink"><span id="displayGithub">username_github</span></a></p>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Bagian Garis Pemisah & Hak Cipta -->
+      <div class="footer-bottom">
+        <p>&copy; 2026 Portfolio Mahasiswa. All Rights Reserved.</p>
+      </div>
+    </footer>
+
+    <!-- FILE JS DIPANGGIL DI PALING BAWAH -->
+    <script src="index.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Keahlian - Portfolio Mahasiswa</title>
+  
+  <!-- Font Awesome untuk Icon -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- File CSS Terpisah -->
+  <link rel="stylesheet" href="skill.css">
+</head>
+<body>
+
+  <header>
+    <nav>
+      <div class="brand">
+        <div class="logo-circle">PM</div>
+        <span class="brand-title">Portfolio Mahasiswa</span>
+      </div>
+    </nav>
+  </header>
+
+  <main class="content">
+    <div class="header-section">
+      <h2>Keahlian & Penguasaan Teknologi</h2>
+      <button id="btnToggleEdit" class="btn-primary" onclick="toggleEditMode()">
+        <i class="fa-solid fa-pen-to-square"></i> Kelola Skill
+      </button>
+    </div>
+
+    <!-- WADAH UTAMA KARTU SKILL -->
+    <div class="skill-container" id="skillContainer"></div>
+
+    <!-- TOMBOL TAMBAH SKILL -->
+    <button id="btnAddSkill" class="btn-add-skill" style="display: none;" onclick="openAddSkillModal()">
+      <i class="fa-solid fa-plus"></i> Tambah Skill Baru
+    </button>
+
+    <a href="index.html" class="btn-beranda">Kembali ke Beranda</a>
+  </main>
+
+  <!-- MODAL / POPUP -->
+  <div class="modal-overlay" id="skillModal" style="display: none;">
+    <div class="modal-content">
+      <h3 id="modalTitle">Tambah Skill Baru</h3>
+      
+      <input type="hidden" id="editSkillId">
+      
+      <div class="form-group">
+        <label for="inputSkillName">Nama Skill / Teknologi</label>
+        <input type="text" id="inputSkillName" placeholder="Contoh: Desain Grafis">
+      </div>
+
+      <div class="form-group">
+        <label for="inputSkillDesc">Deskripsi Singkat</label>
+        <input type="text" id="inputSkillDesc" placeholder="Contoh: Membuat Vector dan mockup">
+      </div>
+
+      <div class="form-group">
+        <label for="inputSkillLevel">Tingkat Penguasaan (%)</label>
+        <input type="number" id="inputSkillLevel" min="0" max="100" placeholder="85">
+      </div>
+
+      <div class="modal-actions">
+        <button class="btn-secondary" onclick="closeSkillModal()">Batal</button>
+        <button class="btn-success" onclick="saveSkill()">Simpan</button>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2026 Portfolio Mahasiswa</p>
+  </footer>
+
+  <!-- File JavaScript Terpisah -->
+  <script src="skill.js"></script>
+</body>
+</html>

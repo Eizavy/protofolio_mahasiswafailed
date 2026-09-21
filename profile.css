@@ -1,0 +1,205 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: #f4f6f9;
+  color: #333;
+}
+
+header {
+  background: #fff;
+  padding: 15px 40px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-circle {
+  width: 45px;
+  height: 45px;
+  background-color: darkblue;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.brand-title {
+  font-weight: 600;
+  color: #1e293b;
+}
+
+.content {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.header-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.btn-primary {
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.btn-primary:hover {
+  background-color: #1d4ed8;
+}
+
+.btn-success {
+  background-color: #16a34a !important;
+}
+
+.education-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.edu-card {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 24px;
+  display: flex;
+  gap: 20px;
+  border-left: 5px solid #2563eb;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+}
+
+.icon-box {
+  background: #dbeafe;
+  color: #2563eb;
+  width: 50px;
+  height: 50px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  flex-shrink: 0;
+}
+
+.card-body {
+  flex-grow: 1;
+}
+
+.badge {
+  background: #eff6ff;
+  color: #2563eb;
+  font-size: 12px;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-weight: 600;
+  display: inline-block;
+  margin-bottom: 8px;
+}
+
+.card-body h3 {
+  font-size: 20px;
+  color: #1e293b;
+  margin-bottom: 4px;
+}
+
+.school-name {
+  color: #2563eb;
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.description {
+  color: #64748b;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.edit-form {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.edit-form input, .edit-form textarea {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.btn-beranda {
+  display: inline-block;
+  margin-top: 30px;
+  color: #2563eb;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  color: #94a3b8;
+  font-size: 14px;
+}
+
+/* Tombol Tambah Pendidikan */
+.btn-add-edu {
+  width: 100%;
+  padding: 12px;
+  background-color: #f1f5f9;
+  border: 2px dashed #cbd5e1;
+  border-radius: 12px;
+  color: #2563eb;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 15px;
+  transition: 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.btn-add-edu:hover {
+  background-color: #e2e8f0;
+  border-color: #2563eb;
+}
+
+/* Tombol Hapus Kartu */
+.btn-delete-card {
+  background: #fee2e2;
+  color: #ef4444;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 600;
+  margin-top: 8px;
+  align-self: flex-start;
+}
+
+.btn-delete-card:hover {
+  background: #fca5a5;
+}

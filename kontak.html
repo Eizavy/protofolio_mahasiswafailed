@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kontak - Portfolio Mahasiswa</title>
+  <!-- Link CDN untuk Ikon Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <!-- Link CSS -->
+  <link rel="stylesheet" href="kontak.css">
+</head>
+<body>
+
+  <!-- NAVBAR ATAS -->
+  <header>
+    <nav>
+      <div class="brand">
+        <div class="logo-circle">PM</div>
+        <span class="brand-title">Portfolio Mahasiswa</span>
+      </div>
+    </nav>
+  </header>
+
+<main class="content">
+  <h2>Hubungi Saya</h2>
+  <p class="subtitle">Klik pada informasi di bawah ini untuk mengubah isinya:</p>
+
+  <!-- KOTAK KONTAK -->
+  <div class="kontak-card">
+    <div class="kontak-list">
+      
+      <!-- EMAIL -->
+      <div class="kontak-item" onclick="editItem(this)">
+        <i class="fa-solid fa-envelope"></i>
+        <div class="kontak-text">
+          <strong>Email:</strong> <span class="val">Isi email kamu disini</span>
+        </div>
+        <span class="edit-hint">Ubah</span>
+      </div>
+
+      <!-- NOMOR HP -->
+      <div class="kontak-item" onclick="editItem(this)">
+        <i class="fa-solid fa-phone"></i>
+        <div class="kontak-text">
+          <strong>No. HP:</strong> <span class="val">Isi nomor HP kamu disini</span>
+        </div>
+        <span class="edit-hint">Ubah</span>
+      </div>
+
+      <!-- INSTAGRAM -->
+      <div class="kontak-item" onclick="editItem(this)">
+        <i class="fa-brands fa-instagram"></i>
+        <div class="kontak-text">
+          <strong>Instagram:</strong> <span class="val">Isi username Instagram kamu disini</span>
+        </div>
+        <span class="edit-hint">Ubah</span>
+      </div>
+
+      <!-- GITHUB -->
+      <div class="kontak-item" onclick="editItem(this)">
+        <i class="fa-brands fa-github"></i>
+        <div class="kontak-text">
+          <strong>GitHub:</strong> <span class="val">Isi URL GitHub kamu disini</span>
+        </div>
+        <span class="edit-hint">Ubah</span>
+      </div>
+
+    </div>
+  </div>
+
+  <a href="index.html" class="btn-beranda">Kembali ke Beranda</a>
+</main>
+
+<!-- FOOTER BAWAH -->
+<footer>
+  <p>&copy; 2026 Portfolio Mahasiswa</p>
+</footer>
+
+<!-- Tombol Pengaturan Akun di Pojok Kanan Bawah -->
+<a href="akun.html" class="btn-settings-float">
+  <i class="fa-solid fa-gear"></i> Pengaturan Akun
+</a>
+
+<script src="kontak.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,388 @@
+/* =========================================
+   1. RESET & GLOBAL STYLES
+   ========================================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: white;
+  color: #111827;
+}
+
+
+/* =========================================
+   2. HEADER & NAVBAR
+   ========================================= */
+header {
+  background-color: white;
+  padding: 15px 60px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Brand & Logo */
+.logo {
+  width: 45px;
+  height: 45px;
+  background-color: darkblue;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.judul {
+  margin-right: auto;
+  margin-left: 15px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+/* Nav Menu & Links */
+.nav-menu {
+  display: flex;
+  list-style: none;
+  gap: 30px;
+}
+
+.nav-menu a {
+  text-decoration: none;
+  color: #333;
+  font-size: 15px;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-menu a:hover {
+  color: #2563eb;
+}
+
+
+/* =========================================
+   3. DROPDOWN MENU
+   ========================================= */
+.dropdown {
+  position: relative;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: white;
+  min-width: 160px;
+  padding: 10px 0;
+  list-style: none;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  display: none;
+}
+
+.dropdown-menu li a {
+  display: block;
+  padding: 10px 20px;
+  color: #333;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.dropdown-menu li a:hover {
+  background-color: #f1f5f9;
+  color: #2563eb;
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+
+/* =========================================
+   4. HERO SECTION
+   ========================================= */
+
+
+.subtitle {
+    font-family: 'Poppins', 'Segoe UI', Roboto, sans-serif;
+    font-size: 20px;                                       
+    font-weight: 700;                                      
+    color: #4f46e5;                                        
+    text-transform: uppercase;                           
+    letter-spacing: 1.5px;                               
+    margin-bottom: 12px;                                
+}
+
+.hero {
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 60px;
+  padding: 70px 8%;
+  background-color: #f5f7fa;
+}
+
+/* Hero Content (Kiri) */
+.hero-text {
+  flex: 1;
+  max-width: 550px;
+}
+
+.hero-subtitle {
+  color: #2563eb;
+  font-size: 14px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  margin-bottom: 15px;
+}
+
+.hero-text h1 {
+  font-size: 52px;
+  line-height: 1.15;
+  margin-bottom: 20px;
+}
+
+.hero-text h1 span {
+  display: block;
+  color: #2563eb;
+}
+
+.hero-description {
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #475569;
+    font-weight: 400;
+    margin-top: 12px;
+    margin-bottom: 24px;
+    max-width: 500px;
+    letter-spacing: 0.2px;
+}
+
+.hero-button {
+  display: inline-block;
+  padding: 13px 25px;
+  background-color: #2563eb;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.hero-button:hover {
+  background-color: #1d4ed8;
+  transform: translateY(-2px);
+}
+
+/* Hero Right Wrapper (Kanan) */
+.hero-right {
+  flex: 1;
+  max-width: 550px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+
+/* =========================================
+   5. SLIDESHOW COMPONENT
+   ========================================= */
+.slideshow {
+  position: relative;
+  width: 100%;
+  height: auto; /* Mengikuti tinggi alami foto */
+  overflow: hidden;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.slide {
+  display: none;
+  width: 100%;
+}
+
+.slide.active {
+  display: block;
+}
+
+.slide img {
+  width: 100%;
+  height: auto; /* Mengikuti tinggi asli gambar */
+  display: block;
+  object-fit: contain; /* Memastikan foto tidak terpotong */
+}
+
+/* Tombol Navigasi Slideshow */
+.prev,
+.next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  background-color: rgba(0, 0, 0, 0.4);
+  color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 20px;
+  transition: background-color 0.2s ease;
+}
+
+.prev {
+  left: 15px;
+}
+
+.next {
+  right: 15px;
+}
+
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+/* Indikator Titik Slideshow */
+.slide-indicators {
+  position: absolute;
+  bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  background-color: rgba(255, 255, 255, 0.6);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.dot.active {
+  background-color: white;
+  transform: scale(1.2);
+}
+
+
+/* =========================================
+   6. WHATSAPP BUTTON COMPONENT
+   ========================================= */
+.wa-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: 100%;
+  padding: 14px 24px;
+  background-color: #25d366;
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+  transition: all 0.3s ease;
+}
+
+.wa-btn i {
+  font-size: 26px;
+}
+
+.wa-btn:hover {
+  background-color: #128c7e;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(37, 211, 102, 0.4);
+}
+
+/* STYLING FOOTER */
+.site-footer {
+  background-color: #0b2e4c;
+  color: #e0e0e0;
+  padding: 50px 0 20px 0;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.footer-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 40px;
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.footer-col {
+  flex: 1;
+  min-width: 220px;
+}
+
+.footer-col h3 {
+  color: #38b6ff;
+  font-size: 18px;
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+
+.footer-col p {
+  color: #d0d7de;
+  margin-bottom: 8px;
+}
+
+.footer-col .mb-space {
+  margin-bottom: 20px;
+}
+
+.footer-col ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-col ul li {
+  margin-bottom: 8px;
+}
+
+.footer-col ul li a {
+  color: #d0d7de;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.footer-col ul li a:hover {
+  color: #38b6ff;
+  text-decoration: underline;
+}
+
+/* GARIS PEMISAH & COPYRIGHT BAWAH */
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.15); /* Garis tipis halus */
+  margin-top: 40px;
+  padding-top: 20px;
+  text-align: center;
+}
+
+.footer-bottom p {
+  font-size: 13px;
+  color: #a0aec0;
+  margin: 0;
+}

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pendidikan - Portfolio Mahasiswa</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="profile.css">
+</head>
+<body>
+
+  <!-- NAVBAR ATAS -->
+  <header>
+    <nav>
+      <div class="brand">
+        <div class="logo-circle">PM</div>
+        <span class="brand-title">Portfolio Mahasiswa</span>
+      </div>
+    </nav>
+  </header>
+
+  <main class="content">
+    <div class="header-section">
+      <h2>Riwayat Pendidikan</h2>
+      <button id="btnEditGlobal" class="btn-primary" onclick="toggleEditMode()">
+        <i class="fa-solid fa-pen-to-square"></i> Perbarui Data Pendidikan
+      </button>
+    </div>
+
+    <div class="education-container" id="eduContainer">
+
+      <!-- KARTU 1: SD -->
+      <div class="edu-card">
+        <div class="icon-box">
+          <i class="fa-solid fa-graduation-cap"></i>
+        </div>
+        <div class="card-body">
+          <span class="badge" id="badgeSd">2011 - 2017</span>
+          <h3>Sekolah Dasar (SD)</h3>
+          <h4 class="school-name" id="namaSd">Nama Sekolah Dasar</h4>
+          <p class="description" id="deskSd">
+            Deskripsi singkat mengenai pendidikan tingkat dasar dan pengalaman awal akademis.
+          </p>
+
+          <div class="edit-form" id="formSd" style="display: none;">
+            <input type="text" id="inputTahunSd" placeholder="Tahun (Contoh: 2011 - 2017)">
+            <input type="text" id="inputNamaSd" placeholder="Nama SD">
+            <textarea id="inputDeskSd" rows="2" placeholder="Deskripsi Singkat"></textarea>
+          </div>
+        </div>
+      </div>
+
+      <!-- KARTU 2: SMP -->
+      <div class="edu-card">
+        <div class="icon-box">
+          <i class="fa-solid fa-graduation-cap"></i>
+        </div>
+        <div class="card-body">
+          <span class="badge" id="badgeSmp">2017 - 2020</span>
+          <h3>Sekolah Menengah Pertama (SMP)</h3>
+          <h4 class="school-name" id="namaSmp">Nama SMP</h4>
+          <p class="description" id="deskSmp">
+            Deskripsi singkat mengenai pendidikan tingkat menengah pertama dan aktivitas akademis.
+          </p>
+
+          <div class="edit-form" id="formSmp" style="display: none;">
+            <input type="text" id="inputTahunSmp" placeholder="Tahun (Contoh: 2017 - 2020)">
+            <input type="text" id="inputNamaSmp" placeholder="Nama SMP">
+            <textarea id="inputDeskSmp" rows="2" placeholder="Deskripsi Singkat"></textarea>
+          </div>
+        </div>
+      </div>
+
+      <!-- KARTU 3: SMA / SMK -->
+      <div class="edu-card">
+        <div class="icon-box">
+          <i class="fa-solid fa-graduation-cap"></i>
+        </div>
+        <div class="card-body">
+          <span class="badge" id="badgeSma">2020 - 2023</span>
+          <h3>SMA / SMK</h3>
+          <h4 class="school-name" id="namaSma">Nama Sekolah</h4>
+          <p class="description" id="deskSma">
+            Deskripsi singkat mengenai pendidikan tingkat menengah atas dan pengalaman akademik yang diperoleh.
+          </p>
+
+          <div class="edit-form" id="formSma" style="display: none;">
+            <input type="text" id="inputTahunSma" placeholder="Tahun (Contoh: 2020 - 2023)">
+            <input type="text" id="inputNamaSma" placeholder="Nama Sekolah">
+            <textarea id="inputDeskSma" rows="2" placeholder="Deskripsi Singkat"></textarea>
+          </div>
+        </div>
+      </div>
+
+      <!-- KARTU 4: Perguruan Tinggi -->
+      <div class="edu-card">
+        <div class="icon-box">
+          <i class="fa-solid fa-graduation-cap"></i>
+        </div>
+        <div class="card-body">
+          <span class="badge" id="badgePt">2023 - Sekarang</span>
+          <h3>Perguruan Tinggi</h3>
+          <h4 class="school-name" id="namaPt">Nama Universitas</h4>
+          <p class="description" id="deskPt">
+            Saya sedang menempuh pendidikan tinggi pada Program Studi Informatika. Saya mempelajari teknologi informasi, pemrograman, dan pengembangan sistem.
+          </p>
+
+          <div class="edit-form" id="formPt" style="display: none;">
+            <input type="text" id="inputTahunPt" placeholder="Tahun (Contoh: 2023 - Sekarang)">
+            <input type="text" id="inputNamaPt" placeholder="Nama Universitas">
+            <textarea id="inputDeskPt" rows="2" placeholder="Deskripsi Singkat"></textarea>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- TOMBOL TAMBAH PENDIDIKAN BARU -->
+    <button id="btnAddExtra" class="btn-add-edu" style="display: none;" onclick="addDynamicEducationCard()">
+      <i class="fa-solid fa-plus"></i> Tambah Pendidikan Lainnya
+    </button>
+
+    <a href="index.html" class="btn-beranda">Kembali ke Beranda</a>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Portfolio Mahasiswa</p>
+  </footer>
+
+  <script src="profile.js"></script>
+</body>
+</html>
