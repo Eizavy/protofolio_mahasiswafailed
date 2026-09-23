@@ -93,25 +93,42 @@
       </div>
 
       <!-- KARTU 4: Perguruan Tinggi -->
-      <div class="edu-card">
-        <div class="icon-box">
-          <i class="fa-solid fa-graduation-cap"></i>
-        </div>
-        <div class="card-body">
-          <span class="badge" id="badgePt">2023 - Sekarang</span>
-          <h3>Perguruan Tinggi</h3>
-          <h4 class="school-name" id="namaPt">Nama Universitas</h4>
-          <p class="description" id="deskPt">
-            Saya sedang menempuh pendidikan tinggi pada Program Studi Informatika. Saya mempelajari teknologi informasi, pemrograman, dan pengembangan sistem.
-          </p>
+<div class="edu-card">
+  <div class="icon-box">
+    <i class="fa-solid fa-graduation-cap"></i>
+  </div>
+  <div class="card-body">
+    <span class="badge" id="badgePt">2023 - Sekarang</span>
+    <h3>Perguruan Tinggi</h3>
+    <h4 class="school-name" id="namaPt">STMIK WIDYA UTAMA</h4>
+    <p class="description" id="deskPt">
+      Saya sedang menempuh pendidikan tinggi pada Program Studi Informatika. Saya mempelajari teknologi informasi, pemrograman, dan pengembangan sistem.
+    </p>
 
-          <div class="edit-form" id="formPt" style="display: none;">
-            <input type="text" id="inputTahunPt" placeholder="Tahun (Contoh: 2023 - Sekarang)">
-            <input type="text" id="inputNamaPt" placeholder="Nama Universitas">
-            <textarea id="inputDeskPt" rows="2" placeholder="Deskripsi Singkat"></textarea>
-          </div>
+    <!-- TAMPILAN IPK DAN DAFTAR SEMESTER -->
+    <div id="displaySemesterPt" style="margin-top: 12px; font-size: 14px; color: #1e293b;">
+      <p id="displayIpk" style="font-weight: 700; color: #16a34a; margin-bottom: 6px;"></p>
+      <ul id="listSemesterView" style="padding-left: 20px; color: #475569;"></ul>
+    </div>
+
+    <!-- FORM EDIT KARTU PT -->
+    <div class="edit-form" id="formPt" style="display: none;">
+      <input type="text" id="inputTahunPt" placeholder="Tahun (Contoh: 2023 - Sekarang)">
+      <input type="text" id="inputNamaPt" placeholder="Nama Universitas">
+      <textarea id="inputDeskPt" rows="2" placeholder="Deskripsi Singkat"></textarea>
+
+      <!-- INPUT DINAMIS SEMESTER & IPS -->
+      <div style="margin-top: 10px; border-top: 1px dashed #cbd5e1; padding-top: 10px;">
+        <label style="font-size: 13px; font-weight: 600; color: #475569;">Nilai Semester & SKS:</label>
+        <div id="containerSemesterPt" style="display: flex; flex-direction: column; gap: 8px; margin-top: 8px;">
+        </div>
+        <button type="button" class="btn-primary" style="background-color: #64748b; padding: 6px 12px; font-size: 12px; margin-top: 8px;" onclick="tambahRowSemester()">
+          + Tambah Semester
+        </button>
+        </div>
         </div>
       </div>
+    </div>
 
     </div>
 

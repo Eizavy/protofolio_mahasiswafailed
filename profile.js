@@ -1,5 +1,6 @@
 let isEditing = false;
 let extraCardCount = 0;
+let dataSemesterPt = [];
 
 document.addEventListener('DOMContentLoaded', function () {
   loadSavedEducationData();
@@ -16,11 +17,14 @@ function toggleEditMode() {
     btn.classList.add('btn-success');
     btnAddExtra.style.display = 'flex';
 
-    // Form Kartu Utama (SD, SMP, SMA & PT)
+    // Form Kartu Utama
     setupForm('Sd', 'badgeSd', 'namaSd', 'deskSd');
     setupForm('Smp', 'badgeSmp', 'namaSmp', 'deskSmp');
     setupForm('Sma', 'badgeSma', 'namaSma', 'deskSma');
     setupForm('Pt', 'badgePt', 'namaPt', 'deskPt');
+
+    // Render ulang baris input semester saat mode edit dibuka
+    renderInputSemester();
 
     // Form Kartu Tambahan
     const dynamicCards = document.querySelectorAll('.extra-card');
@@ -37,11 +41,17 @@ function toggleEditMode() {
     btn.classList.remove('btn-success');
     btnAddExtra.style.display = 'none';
 
+    // Ambil data semester dari form sebelum disimpan
+    simpanInputSemester();
+
     // Simpan Kartu Utama
     saveDataAndToggle('Sd', 'badgeSd', 'namaSd', 'deskSd');
     saveDataAndToggle('Smp', 'badgeSmp', 'namaSmp', 'deskSmp');
     saveDataAndToggle('Sma', 'badgeSma', 'namaSma', 'deskSma');
     saveDataAndToggle('Pt', 'badgePt', 'namaPt', 'deskPt');
+
+    // Hitung & Tampilkan IPK & Rincian Semester
+    renderTampilanIPK();
 
     // Simpan Kartu Tambahan
     const dynamicCards = document.querySelectorAll('.extra-card');
@@ -75,7 +85,7 @@ function toggleEditMode() {
       });
     });
 
-    // Simpan seluruh data ke localStorage
+    // Simpan data ke localStorage
     const eduData = {
       sd: {
         badge: document.getElementById('badgeSd').innerText,
@@ -95,7 +105,8 @@ function toggleEditMode() {
       pt: {
         badge: document.getElementById('badgePt').innerText,
         nama: document.getElementById('namaPt').innerText,
-        desk: document.getElementById('deskPt').innerText
+        desk: document.getElementById('deskPt').innerText,
+        semesters: dataSemesterPt
       },
       extras: extraData
     };
@@ -104,6 +115,88 @@ function toggleEditMode() {
   }
 }
 
+// --- LOGIKA KURSUS SEMESTER & IPK ---
+function tambahRowSemester(ips = '', sks = '') {
+  const container = document.getElementById('containerSemesterPt');
+  const index = container.children.length + 1;
+
+  const row = document.createElement('div');
+  row.className = 'row-semester-input';
+  row.style.cssText = 'display: flex; gap: 8px; align-items: center;';
+  row.innerHTML = `
+    <span style="font-size: 13px; min-width: 85px;">Sem ${index}:</span>
+    <input type="number" step="0.01" class="input-ips" value="${ips}" placeholder="IPS (ex: 3.75)" style="padding: 6px;">
+    <input type="number" class="input-sks" value="${sks}" placeholder="SKS (ex: 20)" style="padding: 6px;">
+    <button type="button" onclick="hapusRowSemester(this)" style="background: #fee2e2; color: #ef4444; border: none; padding: 6px 10px; border-radius: 4px; cursor: pointer;">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+  `;
+  container.appendChild(row);
+}
+
+function hapusRowSemester(button) {
+  button.parentElement.remove();
+}
+
+function simpanInputSemester() {
+  const rows = document.querySelectorAll('.row-semester-input');
+  dataSemesterPt = [];
+
+  rows.forEach((row, idx) => {
+    const ipsVal = parseFloat(row.querySelector('.input-ips').value);
+    const sksVal = parseFloat(row.querySelector('.input-sks').value);
+
+    if (!isNaN(ipsVal) && !isNaN(sksVal) && sksVal > 0) {
+      dataSemesterPt.push({
+        semester: idx + 1,
+        ips: ipsVal,
+        sks: sksVal
+      });
+    }
+  });
+}
+
+function renderInputSemester() {
+  const container = document.getElementById('containerSemesterPt');
+  container.innerHTML = '';
+
+  if (dataSemesterPt.length === 0) {
+    tambahRowSemester();
+  } else {
+    dataSemesterPt.forEach(item => {
+      tambahRowSemester(item.ips, item.sks);
+    });
+  }
+}
+
+function renderTampilanIPK() {
+  const displayIpk = document.getElementById('displayIpk');
+  const listSemesterView = document.getElementById('listSemesterView');
+
+  listSemesterView.innerHTML = '';
+
+  if (dataSemesterPt.length === 0) {
+    displayIpk.innerText = '';
+    return;
+  }
+
+  let totalBobot = 0;
+  let totalSks = 0;
+
+  dataSemesterPt.forEach(item => {
+    totalBobot += item.ips * item.sks;
+    totalSks += item.sks;
+
+    const li = document.createElement('li');
+    li.innerText = `Semester ${item.semester}: IPS ${item.ips.toFixed(2)} (${item.sks} SKS)`;
+    listSemesterView.appendChild(li);
+  });
+
+  const ipk = totalSks > 0 ? (totalBobot / totalSks).toFixed(2) : '0.00';
+  displayIpk.innerText = `IPK Kumulatif: ${ipk}`;
+}
+
+// --- FUNGSI STANDAR ---
 function setupForm(key, badgeId, namaId, deskId) {
   document.getElementById(`form${key}`).style.display = 'flex';
   document.getElementById(`inputTahun${key}`).value = document.getElementById(badgeId).innerText;
@@ -186,6 +279,10 @@ function loadSavedEducationData() {
       document.getElementById('badgePt').innerText = savedData.pt.badge;
       document.getElementById('namaPt').innerText = savedData.pt.nama;
       document.getElementById('deskPt').innerText = savedData.pt.desk;
+      if (savedData.pt.semesters) {
+        dataSemesterPt = savedData.pt.semesters;
+        renderTampilanIPK();
+      }
     }
     if (savedData.extras && savedData.extras.length > 0) {
       savedData.extras.forEach(item => {
